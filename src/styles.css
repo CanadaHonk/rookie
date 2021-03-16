@@ -1,0 +1,256 @@
+:root {
+    --accent: slateblue;
+    --board-base: #222;
+
+    --piece-white: rgba(255, 255, 255, 1);
+    --piece-black: rgba(0, 0, 0, 1);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    background-color: #181a1b !important;
+    color: rgba(255, 255, 255, .87);
+    font-family: Roboto, sans-serif;
+
+    overflow-x: hidden;
+
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+
+    gap: 20px;
+
+    padding: 20px;
+}
+
+.side {
+    display: flex;
+    flex-direction: column;
+
+    gap: 20px;
+
+    overflow: auto;
+
+    max-width: 25vw;
+}
+
+#uci-log {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 16px;
+
+    width: calc((70px + 8px) * 2);
+}
+
+.uci-move-white, .uci-move-black {
+    padding: 6px;
+
+    text-align: center;
+
+    width: 70px;
+    font-size: 24px;
+
+    font-family: Consolas,Andale Mono WT,Andale Mono,Lucida Console,Lucida Sans Typewriter,DejaVu Sans Mono,Bitstream Vera Sans Mono,Liberation Mono,Nimbus Mono L,Monaco,Courier New,Courier,monospace;
+}
+
+.uci-move-white {
+    background-color: #ddd;
+    color: rgba(0, 0, 0, .87);
+}
+
+.uci-move-black {
+    background-color: #111;
+    color: rgba(255, 255, 255, .87);    
+}
+
+.panel {
+    background-color: #222;
+
+    display: flex;
+    flex-direction: column;
+
+    height: fit-content;
+    width: fit-content;
+    margin: 0 auto;
+
+    gap: 8px;
+
+    padding: 16px;
+
+    align-items: center;
+}
+
+.panel div > span:first-child {
+    margin-right: 10px;
+}
+
+.panel > h1 {
+    font-size: 20px;
+    text-align: center;
+
+    margin: 0;
+}
+
+.panel > :not(:first-child) {
+    margin: 6px;
+
+    width: fit-content;
+}
+
+.panel > :first-child {
+    font-size: 20px;
+    font-weight: bold;
+
+    text-align: center;
+
+    position: relative;
+    top: -16px;
+
+    padding: 8px;
+
+    width: calc(100% + 32px);
+
+    background-color: var(--accent);
+
+    margin-bottom: -4px;
+}
+
+#board {
+    width: fit-content;
+    height: 100%;
+
+    display: grid;
+
+    --each-size: min(calc((100vw - 40px) / 8), calc((100vh - 40px) / 8));
+
+    grid-template-columns: repeat(8, var(--each-size) [col-start]);
+    grid-template-rows: repeat(8, var(--each-size) [col-start]);
+
+    margin: auto;
+}
+
+.white-piece {
+    color: var(--piece-white);
+
+    -webkit-text-stroke: 2px var(--piece-black);
+}
+
+.black-piece {
+    color: var(--piece-black);
+
+    /* text-shadow: #fff 0px 0px 0px !important; */
+    -webkit-text-stroke: 2px var(--piece-white);
+}
+
+#d-pt {
+    display: none;
+}
+
+#debug:checked + #d-pt {
+    display: flex;
+}
+
+#debug {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+
+    display: none;
+
+    /* width: calc(25vw - 6px); */
+}
+
+#debug:checked::before {
+    margin-left: 25px;
+}
+
+#turn-title {
+    text-transform: capitalize; /* Makes "white" appear as "White", etc */
+}
+
+#timer {
+    position: absolute;
+
+    top: 50%;
+    transform: translateY(-50%);
+
+    right: 20px;
+}
+
+#timer > div {
+    font-size: 5vw;
+    font-weight: 300;
+
+    padding: 12px;
+
+    text-align: center;
+
+    color: rgba(255, 255, 255, .67);
+}
+
+#timer > div:first-child {
+    border-bottom: 2px solid #222;
+}
+
+#timer > div.active {
+    font-weight: unset;
+    color: rgba(255, 255, 255, .87);
+}
+
+#board > div {
+    font-size: min(14vw, 14vh);
+    text-align: center;
+    display: table-cell;
+    line-height: calc(min(calc((100vw - 40px) / 8), calc((100vh - 40px) / 8)) - 12px);
+
+    background-color: var(--board-base);
+
+    text-shadow: #000 0px 0px 10px;
+
+    font-family: Consolas,Andale Mono WT,Andale Mono,Lucida Console,Lucida Sans Typewriter,DejaVu Sans Mono,Bitstream Vera Sans Mono,Liberation Mono,Nimbus Mono L,Monaco,Courier New,Courier,monospace;
+}
+
+#board > div:nth-child(16n-14),
+#board > div:nth-child(16n-12),
+#board > div:nth-child(16n-10),
+#board > div:nth-child(16n-8),
+#board > div:nth-child(16n-7),
+#board > div:nth-child(16n-5),
+#board > div:nth-child(16n-3),
+#board > div:nth-child(16n-1) {
+    background-color: var(--accent);
+}
+
+
+::-webkit-scrollbar {
+    background-color: #1c1e1f;
+    color: #c5c1b9;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #2a2c2e;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #323537;
+}
+
+::-webkit-scrollbar-thumb:active {
+    background-color: #3d4043;
+}
+
+::-webkit-scrollbar-corner {
+    background-color: #181a1b;
+}
+
+* {
+    scrollbar-color: #2a2c2e #1c1e1f;
+}
