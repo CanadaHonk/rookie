@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Genetic evolution / creature simulator.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>kingWar</title>
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,,medium&amp;lang=en">
+    <link rel="stylesheet" href="/styles.8986bff4.css">
+    
+    <meta name="theme-color" content="#1f1f1f">
+    <meta name="msapplication-navbutton-color" content="#1f1f1f">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#1f1f1f">
+    
+    <link rel="manifest" href="/manifest.webmanifest">
+    <link rel="apple-touch-icon" href="/logo_192.1b93095d.png">
+    
+    <link rel="shortcut icon" href="/favicon.26242483.ico">
+    <link rel="icon" sizes="16x16 32x32 64x64" href="/favicon.26242483.ico">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    
+    <script defer="" src="/app.c3f9f951.js"></script>
+<script src="/styles.8986bff4.js"></script></head>
+
+<body>
+    <div class="side">
+        <div class="panel">
+            <div>Theme</div>
+
+            <div>
+                <span>Accent</span>
+                <select id="accent-dropdown">
+                    <option value="slateblue">Purple</option>
+                    <option value="salmon">Salmon</option>
+                    <option value="#111">Dark</option>
+                </select>
+            </div>
+
+            <div>
+                <span>Board Base</span>
+                <select id="board-base-dropdown">
+                    <option value="#222">Dark</option>
+                    <option value="#eee">Light</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div id="board">
+        <!-- 1st -->
+        <div class="black-piece">&#9820;</div>
+        <div class="black-piece">&#9822;</div>
+        <div class="black-piece">&#9821;</div>
+        <div class="black-piece">&#9819;</div>
+        <div class="black-piece">&#9818;</div>
+        <div class="black-piece">&#9821;</div>
+        <div class="black-piece">&#9822;</div>
+        <div class="black-piece">&#9820;</div>
+        <!-- 2nd -->
+        <div class="black-piece">♟︎</div>
+        <div class="black-piece">♟︎</div>
+        <div class="black-piece">♟︎</div>
+        <div class="black-piece">♟︎</div>
+        <div class="black-piece">♟︎</div>
+        <div class="black-piece">♟︎</div>
+        <div class="black-piece">♟︎</div>
+        <div class="black-piece">♟︎</div>
+        <!-- 3th -->
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <!-- 4st -->
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <!-- 5th -->
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <!-- 6th -->
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <!-- 7th -->
+        <div class="white-piece">♟︎</div>
+        <div class="white-piece">♟︎</div>
+        <div class="white-piece">♟︎</div>
+        <div class="white-piece">♟︎</div>
+        <div class="white-piece">♟︎</div>
+        <div class="white-piece">♟︎</div>
+        <div class="white-piece">♟︎</div>
+        <div class="white-piece">♟︎</div>
+        <!-- 8th -->
+        <div class="white-piece">&#9820;</div>
+        <div class="white-piece">&#9822;</div>
+        <div class="white-piece">&#9821;</div>
+        <div class="white-piece">&#9819;</div>
+        <div class="white-piece">&#9818;</div>
+        <div class="white-piece">&#9821;</div>
+        <div class="white-piece">&#9822;</div>
+        <div class="white-piece">&#9820;</div>
+    </div>
+    <div class="side">
+        <div class="panel" style="width: 100%; height: 40px;">
+            <div id="turn-title">White</div>
+        </div>
+
+        <div class="panel" id="uci-panel">
+            <div>Moves Log</div>
+
+            <div id="uci-log">
+            </div>
+        </div>
+
+        <input type="checkbox" id="debug">
+
+        <div class="panel" id="d-pt">
+            <div>Piece Types</div>
+        </div>
+    </div>
+
+    <div id="timer">
+        <div id="timer-black">0:00</div>
+
+        <div id="timer-white">0:00</div>
+    </div>
+</body>
+</html>
